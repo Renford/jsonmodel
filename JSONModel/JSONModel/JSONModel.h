@@ -44,13 +44,13 @@ DEPRECATED_ATTRIBUTE
  * @property (strong, nonatomic) NSString&lt;Optional&gt; *propertyName;
  *
  */
-@protocol Optional
+@protocol OCOptional
 @end
 
 /**
  * Make all objects compatible to avoid compiler warnings
  */
-@interface NSObject (JSONModelPropertyCompatibility) <Optional, Ignore>
+@interface NSObject (JSONModelPropertyCompatibility) <OCOptional, Ignore>
 @end
 
 /////////////////////////////////////////////////////////////////////////////////////////////
