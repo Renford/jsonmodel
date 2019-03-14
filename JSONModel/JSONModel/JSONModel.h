@@ -240,7 +240,7 @@ DEPRECATED_ATTRIBUTE
  * @param propertyName the name of the property
  * @return a BOOL result indicating whether the property is optional
  */
-+ (BOOL)propertyIsOptional:(NSString *)propertyName;
++ (BOOL)propertyIsOCOptional:(NSString *)propertyName;
 
 /**
  * Indicates whether the property with the given name is Ignored.
