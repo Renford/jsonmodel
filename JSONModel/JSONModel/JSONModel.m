@@ -602,7 +602,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
 
                     [scanner scanUpToString:@">" intoString: &protocolName];
 
-                    if ([protocolName isEqualToString:@"Optional"]) {
+                    if ([protocolName isEqualToString:@"OCOptional"]) {
                         p.isOptional = YES;
                     } else if([protocolName isEqualToString:@"Index"]) {
 #pragma GCC diagnostic push

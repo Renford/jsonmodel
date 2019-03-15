@@ -12,7 +12,7 @@
 @interface JSONAPIRPCErrorModel: JSONModel
 @property (assign, nonatomic) int code;
 @property (strong, nonatomic) NSString* message;
-@property (strong, nonatomic) id<Optional> data;
+@property (strong, nonatomic) id<OCOptional> data;
 @end
 
 #pragma mark - static variables
