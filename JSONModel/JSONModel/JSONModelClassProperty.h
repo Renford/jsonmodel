@@ -31,7 +31,7 @@
 @property (copy, nonatomic) NSString *protocol;
 
 /** If YES, it can be missing in the input data, and the input would be still valid */
-@property (assign, nonatomic) BOOL isOptional;
+@property (assign, nonatomic) BOOL isOCOptional;
 
 /** If YES - don't call any transformers on this property's value */
 @property (assign, nonatomic) BOOL isStandardJSONType;

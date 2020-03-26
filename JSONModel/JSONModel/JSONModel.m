@@ -290,7 +290,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
         //check for Optional properties
         if (isNull(jsonValue)) {
             //skip this property, continue with next property
-            if (property.isOptional || !validation) continue;
+            if (property.isOCOptional || !validation) continue;
 
             if (err) {
                 //null value for required property
@@ -363,7 +363,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
 
                 if (!value) {
                     //skip this property, continue with next property
-                    if (property.isOptional || !validation) continue;
+                    if (property.isOCOptional || !validation) continue;
 
                     // Propagate the error, including the property name as the key-path component
                     if((err != nil) && (initErr != nil))
@@ -497,7 +497,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
     if (!classRequiredPropertyNames) {
         classRequiredPropertyNames = [NSMutableSet set];
         [[self __properties__] enumerateObjectsUsingBlock:^(JSONModelClassProperty* p, NSUInteger idx, BOOL *stop) {
-            if (!p.isOptional) [classRequiredPropertyNames addObject:p.name];
+            if (!p.isOCOptional) [classRequiredPropertyNames addObject:p.name];
         }];
 
         //persist the list
@@ -590,8 +590,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
                     NSString* protocolName = nil;
 
                     [scanner scanUpToString:@">" intoString: &protocolName];
-
-                    if ([protocolName isEqualToString:NSStringFromProtocol(@protocol(Optional))]) {
+                    if ([protocolName isEqualToString:NSStringFromProtocol(@protocol(OCOptional))]) {
                         p.isOptional = YES;
                     } else if([protocolName isEqualToString:NSStringFromProtocol(@protocol(Index))]) {
 #pragma GCC diagnostic push
@@ -645,8 +644,8 @@ static JSONKeyMapper* globalKeyMapper = nil;
             }
 
             NSString *nsPropertyName = @(propertyName);
-            if([[self class] propertyIsOptional:nsPropertyName]){
-                p.isOptional = YES;
+            if([[self class] propertyIsOCOptional:nsPropertyName]){
+                p.isOCOptional = YES;
             }
 
             if([[self class] propertyIsIgnored:nsPropertyName]){
@@ -1309,7 +1308,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
     globalKeyMapper = globalKeyMapperParam;
 }
 
-+(BOOL)propertyIsOptional:(NSString*)propertyName
++(BOOL)propertyIsOCOptional:(NSString*)propertyName
 {
     return NO;
 }
