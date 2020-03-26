@@ -591,7 +591,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
 
                     [scanner scanUpToString:@">" intoString: &protocolName];
                     if ([protocolName isEqualToString:NSStringFromProtocol(@protocol(OCOptional))]) {
-                        p.isOptional = YES;
+                        p.isOCOptional = YES;
                     } else if([protocolName isEqualToString:NSStringFromProtocol(@protocol(Index))]) {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
